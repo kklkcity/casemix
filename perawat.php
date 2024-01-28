@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/css/bootstrap-datepicker.min.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
