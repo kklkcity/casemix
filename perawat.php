@@ -37,7 +37,7 @@
                   <td><label>Real Cost</label></td>
                   <td><input type="text" class="form-control" value="0" disabled /></td>
                   <td><label>Tarif Inacbgs</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" class="form-control" disabled/></td>
                 </tr>
                 <tr>
                   <td><label>Register</label></td>
@@ -48,16 +48,16 @@
                   <td><label>Ruang</label></td>
                   <td><input type="text" class="form-control" disabled/></td>
                   <td><label>Tarif Inacbg</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" class="form-control" disabled/></td>
 
                 </tr>
                 <tr>
                   <td><label>Nama</label></td>
                   <td><input type="text" class="form-control" disabled/></td>
                   <td><label>Tarif Kls 1</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" class="form-control" disabled/></td>
                   <td><label>Tarif Kls 2</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" class="form-control" disabled/></td>
 
                 </tr>
                 <tr>
@@ -125,19 +125,19 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx1" placeholder="Diagnosa"></td>
-                      <td><input type="text" class="form-control" id="pendukung1" placeholder="Pendukung & Terapi"></td>
-                      <td><input type="text" class="form-control" id="tindakan1" placeholder="Tindakan"></td>
+                      <td><input type="text" class="form-control" id="dx1" placeholder="Diagnosa" disabled></td>
+                      <td><input type="text" class="form-control" id="pendukung1" placeholder="Pendukung & Terapi" disabled></td>
+                      <td><input type="text" class="form-control" id="tindakan1" placeholder="Tindakan" disabled></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx2" placeholder="Diagnosa"></td>
-                      <td><input type="text" class="form-control" id="pendukung2" placeholder="Pendukung & Terapi"></td>
-                      <td><input type="text" class="form-control" id="tindakan2" placeholder="Tindakan"></td>
+                      <td><input type="text" class="form-control" id="dx2" placeholder="Diagnosa" disabled></td>
+                      <td><input type="text" class="form-control" id="pendukung2" placeholder="Pendukung & Terapi" disabled></td>
+                      <td><input type="text" class="form-control" id="tindakan2" placeholder="Tindakan" disabled></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx3" placeholder="Diagnosa"></td>
-                      <td><input type="text" class="form-control" id="pendukung3" placeholder="Pendukung & Terapi"></td>
-                      <td><input type="text" class="form-control" id="tindakan3" placeholder="Tindakan"></td>
+                      <td><input type="text" class="form-control" id="dx3" placeholder="Diagnosa" disabled></td>
+                      <td><input type="text" class="form-control" id="pendukung3" placeholder="Pendukung & Terapi" disabled></td>
+                      <td><input type="text" class="form-control" id="tindakan3" placeholder="Tindakan" disabled></td>
                     </tr>
                     
                   </tbody>
