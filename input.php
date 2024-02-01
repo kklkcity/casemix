@@ -31,6 +31,11 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+               <!-- <form
+              action="add.php"
+              method="post"
+              name="form1"
+              enctype="multipart/form-data"> -->
               <table class="table table-bordered">
                 <tr>
                   <td><label>Tanggal</label></td>
@@ -42,23 +47,23 @@
                 </tr>
                 <tr>
                   <td><label>Register</label></td>
-                  <td><input type="text" class="form-control" name="no_reg" id="no_reg" onchange="isi_otomatis()" autocomplete="off" placeholder="masukkan no rm" required autofocus></td>
-                  <td><button type="submit" class="btn btn-primary">Cari</button></td>
+                  <td><input type="text" class="form-control" name="no_rm" id="no_rm" onchange="isi_otomatis()" autocomplete="off" placeholder="masukkan no rm"></td>
+                  <!-- <td><button type="submit" class="btn btn-primary">Cari</button></td> -->
                 </tr>
                 <tr>
                   <td><label>Ruang</label></td>
                   <td><input type="text" class="form-control" name="ruang" id="ruang" autocomplete="off" readonly></td>
                   <td><label>Tarif Inacbg</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" name="tarif_ina"  class="form-control"/></td>
 
                 </tr>
                 <tr>
                   <td><label>Nama</label></td>
                   <td><input type="text" class="form-control" name="nama" id="nama" autocomplete="off" readonly></td>
                   <td><label>Tarif Kls 1</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" name="tarif_kls_1" class="form-control"/></td>
                   <td><label>Tarif Kls 2</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" name="tarif_kls_2" class="form-control"/></td>
 
                 </tr>
                 <tr>
@@ -72,50 +77,7 @@
                   <td><input type="text" class="form-control" name="dx_masuk" id="dx_masuk" autocomplete="off" readonly></td>
                 </tr>
               </table>
-              <!-- <form>
-                <div class="card-body">
-                  <div class="row">
-                    
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder=""> 
-                     <div class="col-sm-2">
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input style="width: 30px;"  type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
-                        </div>
-                    </div> 
-                  </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Register</label>
-                        <div class="col-sm-2">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        </div>
-                    </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Ruang</label>
-                        <div class="col-sm-2">    
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        </div>
-                  </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Nama</label>
-                        <div class="col-sm-2">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        </div>
-                  </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Penjamin</label>
-                    <div class="col-sm-2">    
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                  </div>
-                  </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Diagnosis Masuk</label>
-                    <div class="col-sm-2">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        </div>
-                    </div> -->
+             
                   <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -126,14 +88,14 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx1" placeholder="Diagnosa"></td>
-                      <td><input type="text" class="form-control" id="pendukung1" placeholder="Pendukung & Terapi"></td>
-                      <td><input type="text" class="form-control" id="tindakan1" placeholder="Tindakan"></td>
+                      <td><input type="text" class="form-control" name="dx_1" id="dx_1" placeholder="Diagnosa"></td>
+                      <td><input type="text" class="form-control" name="pendukung_1" id="pendukung1" placeholder="Pendukung & Terapi"></td>
+                      <td><input type="text" class="form-control" name="tindakan_1" id="tindakan1" placeholder="Tindakan"></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx2" placeholder="Diagnosa"></td>
-                      <td><input type="text" class="form-control" id="pendukung2" placeholder="Pendukung & Terapi"></td>
-                      <td><input type="text" class="form-control" id="tindakan2" placeholder="Tindakan"></td>
+                      <td><input type="text" class="form-control" name="dx_2" id="dx_2" placeholder="Diagnosa"></td>
+                      <td><input type="text" class="form-control" name="pendukung_2" id="pendukung2" placeholder="Pendukung & Terapi"></td>
+                      <td><input type="text" class="form-control" name="tindakan_2" id="tindakan2" placeholder="Tindakan"></td>
                     </tr>
                     <tr>
                       <td><input type="text" class="form-control" id="dx3" placeholder="Diagnosa"></td>
@@ -147,7 +109,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <input type="submit" name="Submit" class="btn btn-primary">
                 </div>
               </form>
             </div> 
@@ -182,25 +144,26 @@
 
 <script type="text/javascript">
     function isi_otomatis(){
-        var no_reg = $("#no_reg").val();
+        var no_rm = $("#no_rm").val();
         $.ajax({
-            url: 'config.php',
-            data:"no_reg="+no_reg ,
+            url: 'ajax.php',
+            data:"no_rm="+no_rm ,
         }).success(function (data) {
             var json = data,
             obj = JSON.parse(json);
-            $('#no_reg').val(obj.no_reg);
+            $('#no_rm').val(obj.no_rm);
             $('#ruang').val(obj.ruang);
             $('#nama').val(obj.nama);
             $('#penjamin').val(obj.penjamin);
             $('#dx_masuk').val(obj.dx_masuk);
+            $('#dx_1').val(obj.dx_masuk);
         });
     }
 </script>
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="js/demo.js"></script> -->
 <!-- Page specific script -->
-<!-- <script>
+<script>
   $(function() {
   var date = new Date();
   var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -213,55 +176,7 @@
     });
     $('#datepicker1').datepicker('setDate', today);
   });  
-
-        // function GetDetail(str) { 
-        //     if (str.length == 0) { 
-        //         document.getElementById("ruang").value = ""; 
-        //         document.getElementById("nama").value = ""; 
-        //         document.getElementById("penjamin").value = "";
-        //         document.getElementById("dx_masuk").value = "";
-        //         return; 
-        //     } 
-        //     else { 
-  
-        //         // Creates a new XMLHttpRequest object 
-        //         var xmlhttp = new XMLHttpRequest(); 
-        //         xmlhttp.onreadystatechange = function () { 
-  
-        //             // Defines a function to be called when 
-        //             // the readyState property changes 
-        //             if (this.readyState == 4 &&  
-        //                     this.status == 200) { 
-                          
-        //                 // Typical action to be performed 
-        //                 // when the document is ready 
-        //                 var myObj = JSON.parse(this.responseText); 
-  
-        //                 // Returns the response data as a 
-        //                 // string and store this array in 
-        //                 // a variable assign the value  
-        //                 // received to first name input field 
-                          
-        //                 document.getElementById 
-        //                     ("ruang").value = myObj[0]; 
-                          
-        //                 // Assign the value received to 
-        //                 // last name input field 
-        //                 document.getElementById("nama").value = myObj[1];
-        //                 document.getElementById("penjamin").value = myObj[2];
-        //                 document.getElementById("dx_masuk").value = myObj[3]; 
-        //             } 
-        //         }; 
-  
-        //         // xhttp.open("GET", "filename", true); 
-        //         xmlhttp.open("GET", "config.php?no_reg=" + str, true); 
-                  
-        //         // Sends the request to the server 
-        //         xmlhttp.send(); 
-        //     } 
-        // } 
-</script> -->
-
-
+</script>
+        
 </body>
 </html>
