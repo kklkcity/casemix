@@ -1,4 +1,9 @@
+<?php
+// INCLUDE KONEKSI KE DATABASE
+include_once("conf.php");
 
+// AMBIL DATA DARI DATABASE BERDASARKAN DATA TERAKHIR DI INPUT
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,15 +32,17 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h4 class="title">Sistem Informasi Casemix</h3>
+                <a style="text-decoration:none" href="user.html">
+                <h4 class="title">Sistem Informasi Casemix</h4>
+                </a>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-               <!-- <form
+               <form
               action="add.php"
               method="post"
               name="form1"
-              enctype="multipart/form-data"> -->
+              enctype="multipart/form-data">
               <table class="table table-bordered">
                 <tr>
                   <td><label>Tanggal</label></td>
@@ -43,27 +50,29 @@
                   <td><label>Real Cost</label></td>
                   <td><input type="text" class="form-control" value="0" disabled /></td>
                   <td><label>Tarif Inacbgs</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" name="tarif_inacbg" id="tarif_inacbg" class="form-control" disabled/></td>
                 </tr>
                 <tr>
-                  <td><label>Register</label></td>
-                  <td><input type="text" class="form-control" name="no_rm" id="no_rm" onchange="isi_otomatis()" autocomplete="off" placeholder="masukkan no rm"></td>
+                  <td><label>No. RM</label></td>
+                  <td><input type="text" class="form-control" name="no_rm" id="no_rm" onchange="isi_otomatis()" autocomplete="off" placeholder="masukkan no rm">
+                    <input hidden type="text" class="form-control" name="id" id="id">
+                  </td>
                   <!-- <td><button type="submit" class="btn btn-primary">Cari</button></td> -->
                 </tr>
                 <tr>
                   <td><label>Ruang</label></td>
                   <td><input type="text" class="form-control" name="ruang" id="ruang" autocomplete="off" readonly></td>
                   <td><label>Tarif Inacbg</label></td>
-                  <td><input type="text" name="tarif_ina"  class="form-control"/></td>
+                  <td><input type="text" name="tarif_ina" id="tarif_ina" class="form-control"/></td>
 
                 </tr>
                 <tr>
                   <td><label>Nama</label></td>
                   <td><input type="text" class="form-control" name="nama" id="nama" autocomplete="off" readonly></td>
                   <td><label>Tarif Kls 1</label></td>
-                  <td><input type="text" name="tarif_kls_1" class="form-control"/></td>
+                  <td><input type="text" id="tarif_kls_1" name="tarif_kls_1" class="form-control"/></td>
                   <td><label>Tarif Kls 2</label></td>
-                  <td><input type="text" name="tarif_kls_2" class="form-control"/></td>
+                  <td><input type="text" id="tarif_kls_2" name="tarif_kls_2" class="form-control"/></td>
 
                 </tr>
                 <tr>
@@ -98,7 +107,7 @@
                       <td><input type="text" class="form-control" name="tindakan_2" id="tindakan2" placeholder="Tindakan"></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx3" placeholder="Diagnosa"></td>
+                      <td><input type="text" class="form-control" name="dx3" id="dx3" placeholder="Diagnosa"></td>
                       <td><input type="text" class="form-control" id="pendukung3" placeholder="Pendukung & Terapi"></td>
                       <td><input type="text" class="form-control" id="tindakan3" placeholder="Tindakan"></td>
                     </tr>
@@ -109,7 +118,9 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <input type="submit" name="Submit" class="btn btn-primary">
+                  <input type="submit" name="Submit" value="Simpan" class="btn btn-primary">
+
+                  <input type="reset" name="Delete" value="Hapus" class="btn btn-danger">
                 </div>
               </form>
             </div> 
@@ -151,12 +162,23 @@
         }).success(function (data) {
             var json = data,
             obj = JSON.parse(json);
+            $('#id').val(obj.id);
             $('#no_rm').val(obj.no_rm);
             $('#ruang').val(obj.ruang);
             $('#nama').val(obj.nama);
             $('#penjamin').val(obj.penjamin);
             $('#dx_masuk').val(obj.dx_masuk);
             $('#dx_1').val(obj.dx_masuk);
+            $('#dx_2').val(obj.dx_1);
+            $('#dx3').val(obj.dx_2);
+            $('#pendukung2').val(obj.pendukung_1);
+            $('#pendukung3').val(obj.pendukung_2);
+            $('#tindakan2').val(obj.tindakan_1);
+            $('#tindakan3').val(obj.tindakan_2);
+            $('#tarif_inacbg').val(obj.tarif_ina);
+            $('#tarif_ina').val(obj.tarif_ina);
+            $('#tarif_kls_1').val(obj.tarif_kls_1);
+            $('#tarif_kls_2').val(obj.tarif_kls_2);
         });
     }
 </script>

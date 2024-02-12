@@ -1,3 +1,9 @@
+<?php
+// INCLUDE KONEKSI KE DATABASE
+include_once("conf.php");
+
+// AMBIL DATA DARI DATABASE BERDASARKAN DATA TERAKHIR DI INPUT
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +23,6 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -31,6 +36,11 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+              <!--  <form
+              action="add.php"
+              method="post"
+              name="form1"
+              enctype="multipart/form-data"> -->
               <table class="table table-bordered">
                 <tr>
                   <td><label>Tanggal</label></td>
@@ -38,84 +48,43 @@
                   <td><label>Real Cost</label></td>
                   <td><input type="text" class="form-control" value="0" disabled /></td>
                   <td><label>Tarif Inacbgs</label></td>
-                  <td><input type="text" class="form-control" disabled/></td>
+                  <td><input type="text" name="tarif_inacbg" id="tarif_inacbg" class="form-control" disabled/></td>
                 </tr>
                 <tr>
-                  <td><label>Register</label></td>
-                  <td><input type="text" class="form-control"/></td>
-                  <td><button type="submit" class="btn btn-primary">Cari</button></td>
+                  <td><label>No. RM</label></td>
+                  <td><input type="text" class="form-control" name="no_rm" id="no_rm" onchange="isi_otomatis()" autocomplete="off" placeholder="masukkan no rm">
+                    <input hidden type="text" class="form-control" name="id" id="id">
+                  </td>
+                  <!-- <td><button type="submit" class="btn btn-primary">Cari</button></td> -->
                 </tr>
                 <tr>
                   <td><label>Ruang</label></td>
-                  <td><input type="text" class="form-control" disabled/></td>
+                  <td><input type="text" class="form-control" name="ruang" id="ruang" autocomplete="off" readonly></td>
                   <td><label>Tarif Inacbg</label></td>
-                  <td><input type="text" class="form-control" disabled/></td>
+                  <td><input type="text" name="tarif_ina" id="tarif_ina" class="form-control" disabled/></td>
 
                 </tr>
                 <tr>
                   <td><label>Nama</label></td>
-                  <td><input type="text" class="form-control" disabled/></td>
+                  <td><input type="text" class="form-control" name="nama" id="nama" autocomplete="off" readonly></td>
                   <td><label>Tarif Kls 1</label></td>
-                  <td><input type="text" class="form-control" disabled/></td>
+                  <td><input type="text" id="tarif_kls_1" name="tarif_kls_1" class="form-control" disabled/></td>
                   <td><label>Tarif Kls 2</label></td>
-                  <td><input type="text" class="form-control" disabled/></td>
+                  <td><input type="text" id="tarif_kls_2" name="tarif_kls_2" class="form-control" disabled/></td>
 
                 </tr>
                 <tr>
                   <td><label>Penjamin</label></td>
-                  <td><input type="text" class="form-control" disabled/></td>
+                  <td><input type="text" disabled class="form-control" name="penjamin" id="penjamin" autocomplete="off" readonly></td>
                   <td><label>Kelas yg ditempati</label></td>
-                  <td><input type="text" class="form-control"/></td>
+                  <td><input type="text" class="form-control" disabled/></td>
                 </tr>
                 <tr>
                   <td><label>Diagnosis Masuk</label></td>
-                  <td><input type="text" class="form-control" disabled/></td>
+                  <td><input type="text" class="form-control" name="dx_masuk" id="dx_masuk" autocomplete="off" readonly></td>
                 </tr>
               </table>
-              <!-- <form>
-                <div class="card-body">
-                  <div class="row">
-                    
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder=""> 
-                     <div class="col-sm-2">
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input style="width: 30px;"  type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
-                        </div>
-                    </div> 
-                  </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Register</label>
-                        <div class="col-sm-2">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        </div>
-                    </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Ruang</label>
-                        <div class="col-sm-2">    
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        </div>
-                  </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Nama</label>
-                        <div class="col-sm-2">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        </div>
-                  </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Penjamin</label>
-                    <div class="col-sm-2">    
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                  </div>
-                  </div>
-                  <div class="row">
-                    <label for="exampleInputPassword1">Diagnosis Masuk</label>
-                    <div class="col-sm-2">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                        </div>
-                    </div> -->
+             
                   <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -126,19 +95,19 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx1" placeholder="Diagnosa" disabled></td>
-                      <td><input type="text" class="form-control" id="pendukung1" placeholder="Pendukung & Terapi" disabled></td>
-                      <td><input type="text" class="form-control" id="tindakan1" placeholder="Tindakan" disabled></td>
+                      <td><input type="text" readonly class="form-control" name="dx_1" id="dx_1" placeholder="Diagnosa"></td>
+                      <td><input type="text" readonly class="form-control" name="pendukung_1" id="pendukung1" placeholder="Pendukung & Terapi"></td>
+                      <td><input type="text" readonly class="form-control" name="tindakan_1" id="tindakan1" placeholder="Tindakan"></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx2" placeholder="Diagnosa" disabled></td>
-                      <td><input type="text" class="form-control" id="pendukung2" placeholder="Pendukung & Terapi" disabled></td>
-                      <td><input type="text" class="form-control" id="tindakan2" placeholder="Tindakan" disabled></td>
+                      <td><input type="text" readonly class="form-control" name="dx_2" id="dx_2" placeholder="Diagnosa"></td>
+                      <td><input type="text" readonly class="form-control" name="pendukung_2" id="pendukung2" placeholder="Pendukung & Terapi"></td>
+                      <td><input type="text" readonly class="form-control" name="tindakan_2" id="tindakan2" placeholder="Tindakan"></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="form-control" id="dx3" placeholder="Diagnosa" disabled></td>
-                      <td><input type="text" class="form-control" id="pendukung3" placeholder="Pendukung & Terapi" disabled></td>
-                      <td><input type="text" class="form-control" id="tindakan3" placeholder="Tindakan" disabled></td>
+                      <td><input type="text" readonly class="form-control" name="dx3" id="dx3" placeholder="Diagnosa"></td>
+                      <td><input type="text" readonly class="form-control" id="pendukung3" placeholder="Pendukung & Terapi"></td>
+                      <td><input type="text" readonly class="form-control" id="tindakan3" placeholder="Tindakan"></td>
                     </tr>
                     
                   </tbody>
@@ -147,9 +116,12 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="user.html">
+                    <button class="btn btn-primary">Kembali</button>
+                  </a>
+
                 </div>
-              </form>
+              <!-- </form> -->
             </div> 
             <!-- /.card -->        
         <!-- /.row -->
@@ -177,10 +149,38 @@
 <script src="js/moment.min.js"></script>
 <script src="js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"></script>
 
-
+<script type="text/javascript">
+    function isi_otomatis(){
+        var no_rm = $("#no_rm").val();
+        $.ajax({
+            url: 'ajax.php',
+            data:"no_rm="+no_rm ,
+        }).success(function (data) {
+            var json = data,
+            obj = JSON.parse(json);
+            $('#id').val(obj.id);
+            $('#no_rm').val(obj.no_rm);
+            $('#ruang').val(obj.ruang);
+            $('#nama').val(obj.nama);
+            $('#penjamin').val(obj.penjamin);
+            $('#dx_masuk').val(obj.dx_masuk);
+            $('#dx_1').val(obj.dx_masuk);
+            $('#dx_2').val(obj.dx_1);
+            $('#dx3').val(obj.dx_2);
+            $('#pendukung2').val(obj.pendukung_1);
+            $('#pendukung3').val(obj.pendukung_2);
+            $('#tindakan2').val(obj.tindakan_1);
+            $('#tindakan3').val(obj.tindakan_2);
+            $('#tarif_inacbg').val(obj.tarif_ina);
+            $('#tarif_ina').val(obj.tarif_ina);
+            $('#tarif_kls_1').val(obj.tarif_kls_1);
+            $('#tarif_kls_2').val(obj.tarif_kls_2);
+        });
+    }
+</script>
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="js/demo.js"></script> -->
 <!-- Page specific script -->
@@ -198,5 +198,6 @@
     $('#datepicker1').datepicker('setDate', today);
   });  
 </script>
+        
 </body>
 </html>
