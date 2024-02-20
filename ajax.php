@@ -5,7 +5,7 @@ $con = mysqli_connect("localhost","root","","casemix");
 
 $no_rm = $_GET['no_rm'];
 
-$query = mysqli_query($con,"SELECT px_ranap.id, px_ranap.no_rm,px_ranap.nama,px_ranap.penjamin,px_ranap.dx_masuk,px_ranap.kelas,px_ranap.ruang,data.dx_1,data.dx_2,data.pendukung_1,data.pendukung_2,data.tindakan_1,data.tindakan_2,data.tarif_ina,data.tarif_kls_1,data.tarif_kls_2,data.id_px_ranap FROM px_ranap JOIN data ON px_ranap.id = data.id_px_ranap WHERE px_ranap.no_rm ='$no_rm'");
+$query = mysqli_query($con,"SELECT px_ranap.id, px_ranap.no_rm,px_ranap.nama,px_ranap.penjamin,px_ranap.dx_masuk,px_ranap.kelas,px_ranap.ruang,data_ranap.dx_1,data_ranap.dx_2,data_ranap.pendukung_1,data_ranap.pendukung_2,data_ranap.tindakan_1,data_ranap.tindakan_2,data_ranap.tarif_ina,data_ranap.tarif_kls_1,data_ranap.tarif_kls_2,data_ranap.id_px_ranap FROM px_ranap LEFT JOIN data_ranap ON px_ranap.id = data_ranap.id_px_ranap WHERE px_ranap.no_rm ='$no_rm'");
 
 $user = mysqli_fetch_array($query);
 $data = array(

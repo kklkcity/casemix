@@ -33,13 +33,22 @@
 		} else {
 			
 			// MEMASUKAN DATA DATA + NAMA GAMBAR KE DALAM DATABASE
-			$result = mysqli_query($mysqli, "INSERT INTO data (id_px_ranap,dx_1,dx_2,pendukung_1,pendukung_2,tindakan_1,tindakan_2,tarif_ina,tarif_kls_1,tarif_kls_2) VALUES ('$id','$dx2','$dx3','$pendukung_1','$pendukung_2','$tindakan_1','$tindakan_2','$tarif_ina','$tarif_kls_1','$tarif_kls_2')");
+			$result = mysqli_query($mysqli, "INSERT INTO data_ranap (id_px_ranap,dx_1,dx_2,pendukung_1,pendukung_2,tindakan_1,tindakan_2,tarif_ina,tarif_kls_1,tarif_kls_2) VALUES ('$id','$dx2','$dx3','$pendukung_1','$pendukung_2','$tindakan_1','$tindakan_2','$tarif_ina','$tarif_kls_1','$tarif_kls_2')");
 			echo "aaaa.$result";
 			printf($result);
 			// MENAMPILKAN PESAN BERHASIL
 			echo "<font color='green'>Data Berhasil ditambahkan.";
 			echo "<br/><a href='input.php'>Kembali</a>";
 		}
+	}else{
+		// AMBIL DATA ID DI URL
+		$id = $_GET['id_px_ranap'];
+
+		// DELETE DATA DARI TABLE
+		$result = mysqli_query($mysqli, "UPDATE data_ranap SET status='0' WHERE id_px_ranap=$id");
+
+		// REDIRECT KE index.php
+		header("Location:input.php");
 	}
 	?>
 </body>
